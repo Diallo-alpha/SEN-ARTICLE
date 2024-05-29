@@ -9,26 +9,26 @@
 <body>
   <center>
     <h1>Articles</h1>
-    <a href="/ajouter" class="btn btn-primary" style="text-decoration: none;">ajouter un article</a>
+    <a href="/ajouter" class="btn btn-primary" style="text-decoration: none;">Ajouter un article</a>
     @if (session('status'))
     <div class="alert alert-success">
-      {{session('status')}}
+      {{ session('status') }}
     </div>
     @endif
   </center>
   <div class="container d-flex flex-wrap justify-content-center">
     @foreach ($articles as $article)
     <div class="card m-2" style="width: 18rem;">
-      <img src="{{$article->image}}" class="card-img-top" alt="mage-article" style="height: 200px; object-fit: cover;">
+      <img src="{{ $article->image }}" class="card-img-top" alt="image-article" style="height: 200px; object-fit: cover;">
       <div class="card-body">
-        <h5 class="card-title">{{$article->nom}}</h5>
-        <span>{{$article->date_creation}}</span>
+        <h5 class="card-title">{{ $article->nom }}</h5>
+        <span>{{ $article->date_creation }}</span>
+        <br>
+        <a href="/mise_à_jour-article/{{ $article->id }}" class="btn btn-primary mt-2">Modifier</a>
+        <a href="/supprimer/{{ $article->id }}" class="btn btn-danger mt-2">Supprimer</a>
+        <a href='/information-article/{{ $article->id }}' class="btn btn-success mt-3">Plus d'informations</a>
+        <a href="{{ route('commentaires.ajouter_commentaire', ['article_id' => $article->id]) }}" class="btn btn-info mt-2">Ajouter un commentaire</a>
       </div>
-      <a href="/mise_à_jour-article/{{$article->id}}" class="btn btn-primary">Modifier</a>
-      <a href="/supprimer/{{$article->id}}" class="btn btn-danger">Supprimer</a>
-      <a href='/information-article/{{ $article->id }}' class="btn btn-success mt-3">plus d'informations</a>
-      <a href="{{ route('ajouter_commentaire', $article->id) }}" class="btn btn-success mt-3">Commentaire</a>
-
     </div>
     @endforeach
   </div>

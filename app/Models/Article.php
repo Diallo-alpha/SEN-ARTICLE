@@ -8,15 +8,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Article extends Model
 {
-
     protected $fillable = [
         'nom',
         'description',
         'image',
         'date_creation',
         'a_la_une',
-
     ];
+
     use HasFactory;
 
     /**
@@ -26,6 +25,7 @@ class Article extends Model
      */
     public function commentaires(): HasMany
     {
-        return $this->hasMany(\App\Models\commentaires::class);
+        return $this->hasMany(\App\Models\Commentaire::class);
     }
 }
+

@@ -12,26 +12,27 @@ class CommentaireController extends Controller
             return view('commentaires.commentaire', compact('commentaires'));
         }
 
-    public function ajouter_commentaire()
+    public function ajouter_commentaire($article_id)
         {
-            return view('commentaires.ajouter_commentaire');
+            return view('commentaires.ajouter_commentaire', compact('article_id'));
         }
 
-    public function traitement_ajouter_commentaire(Request $request)
+        public function traitement_ajouter_commentaire(Request $request, $article_id)
         {
-            // dd($request->all());
             $request->validate([
                 'contenue'=> 'required',
                 'nom_complet_auteur' => 'required',
+                
             ]);
-            //class comment instance
 
             $commentaire = new Commentaire();
             $commentaire->contenue = $request->contenue;
             $commentaire->nom_complet_auteur = $request->nom_complet_auteur;
             $commentaire->date_heure_commentaire = $request->input('date_heure_commentaire', now());
+            $commentaire->article_id = $article_id;
             $commentaire->save();
-            return redirect('/')->with('status', 'commentaire ajouter avec succees');
+
+            return redirect('/')->with('status', 'Commentaire ajouté avec succès');
         }
 
         //à jour

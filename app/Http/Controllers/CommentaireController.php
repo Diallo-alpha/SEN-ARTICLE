@@ -22,7 +22,7 @@ class CommentaireController extends Controller
             $request->validate([
                 'contenue'=> 'required',
                 'nom_complet_auteur' => 'required',
-                
+
             ]);
 
             $commentaire = new Commentaire();

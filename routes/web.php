@@ -15,3 +15,5 @@ Route::get('/supprimer/{id}', [ArticleController::class, 'supprimer']);
 Route::get('/commentaire',[CommentaireController::class, 'commentaires']);
 Route::get('/ajouter_commentaire/{id}', [CommentaireController::class, 'ajouter_commentaire'])->name('ajouter_commentaire');
 Route::post('/ajouter/traitement_commentaire', [CommentaireController::class, 'traitement_ajouter_commentaire'])->name('traitement_commentaire');
+Route::get('/mise_à_jour_commentaire/{id}', [CommentaireController::class, 'mettre_à_jour_commentaire'])->name('mettre_jour_commentaire');
+Route::post('/mise_à_jour_commentaire', [CommentaireController::class, 'mise_à_jour_commentaires'])->name('mise_à_jour_commentaire');

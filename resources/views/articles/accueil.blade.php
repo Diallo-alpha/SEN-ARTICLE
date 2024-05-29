@@ -27,6 +27,8 @@
       <a href="/mise_à_jour-article/{{$article->id}}" class="btn btn-primary">Modifier</a>
       <a href="/supprimer/{{$article->id}}" class="btn btn-danger">Supprimer</a>
       <a href='/information-article/{{ $article->id }}' class="btn btn-success mt-3">plus d'informations</a>
+      <a href="{{ route('ajouter_commentaire', $article->id) }}" class="btn btn-success mt-3">Commentaire</a>
+
     </div>
     @endforeach
   </div>

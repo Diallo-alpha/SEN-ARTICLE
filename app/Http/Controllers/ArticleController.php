@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Article;
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
+
 class ArticleController extends Controller
 {
     public function affiche_article()
@@ -65,8 +67,9 @@ public function ajouter_une_article(Request $request)
 
     public function voir_plus($id)
             {
+                $commentaires = Commentaire::all()->where('article_id', $id);
                 $article = Article::find($id);
-                return view('articles.information', compact('article'));
+                return view('articles.information', compact('article', 'commentaires'));
             }
 
     public function supprimer ($id)

@@ -33,6 +33,7 @@
           <img src="{{ $article->image }}" class="card-img-top" alt="image-article">
           <div class="card-body">
             <h5 class="card-title">{{ $article->nom }}</h5>
+            <p>pour  plus d'information veiller cliquer sur le button plus d'information afin de consulter l'article</p>
             <span class="text-muted">{{ $article->date_creation }}</span>
             <div class="mt-3">
               <a href="/mise_à_jour-article/{{ $article->id }}" class="btn btn-primary">Modifier</a>

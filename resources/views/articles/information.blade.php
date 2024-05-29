@@ -20,9 +20,7 @@
                 <h5 class="card-title">{{ $article->nom }}</h5>
                 <p class="card-text">{{ $article->description }}</p>
                 <span class="text-muted">{{ $article->date_création }}</span>
-                <div class="mt-3">
-                    <a href="/" class="btn btn-primary">Retour à la page d'accueil</a>
-                </div>
+
             </div>
         </div>
         <a href="{{ route('commentaires.ajouter_commentaire', ['article_id' => $article->id]) }}" class="btn btn-info mt-2">Ajouter un commentaire</a>
@@ -47,6 +45,9 @@
                 <a href="{{ route('supprimer_commentaire', $commentaire->id) }}" class="btn btn-primary">Supprimer</a>
             </div>
         @endforeach
+        <div class="mt-3">
+            <a href="/" class="btn btn-danger">Retour à la page d'accueil</a>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

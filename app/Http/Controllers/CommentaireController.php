@@ -54,4 +54,14 @@ class CommentaireController extends Controller
             $commentaire->update();
             return redirect('/')->with('status', 'commentaire à été mise à jour avec succees');
         }
+
+        //supprimer un commentaire
+
+    public function supprimer_commentaire($id)
+        {
+            $commentaire = Commentaire::find($id);
+            $commentaire->delete();
+            return redirect('/')->with('status', 'commentaire à été supprimer avec succees');
+
+        }
 }

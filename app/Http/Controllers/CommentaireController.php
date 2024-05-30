@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Commentaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class CommentaireController extends Controller
 {
@@ -32,8 +33,7 @@ class CommentaireController extends Controller
             $commentaire->article_id = $article_id;
             $commentaire->save();
 
-            return redirect('/')->with('status', 'Commentaire ajouté avec succès');
-        }
+            return redirect()->route('voir_plus', ['id' => $commentaire->article_id]); }
 
         //à jour
     public function mettre_à_jour_commentaire($id)
@@ -53,7 +53,7 @@ class CommentaireController extends Controller
             $commentaire->nom_complet_auteur = $request->nom_complet_auteur;
             $commentaire->date_heure_commentaire = $request->input('date_heure_commentaire', now());
             $commentaire->update();
-            return redirect('/')->with('status', 'commentaire à été mise à jour avec succees');
+            return redirect()->route('voir_plus', ['id' => $commentaire->article_id]);
         }
 
         //supprimer un commentaire
@@ -62,7 +62,6 @@ class CommentaireController extends Controller
         {
             $commentaire = Commentaire::find($id);
             $commentaire->delete();
-            return redirect('/')->with('status', 'commentaire à été supprimer avec succees');
-
+            return redirect()->route('voir_plus', ['id' => $commentaire->article_id]); 
         }
 }

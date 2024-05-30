@@ -26,17 +26,18 @@
         <a href="{{ route('commentaires.ajouter_commentaire', ['article_id' => $article->id]) }}" class="btn btn-info mt-2">Ajouter un commentaire</a>
     </div>
     <div class="container">
-        <h1 class="mt-5">les commentaires</h1>
-
+        <h1 class="mt-5">Commentaires</h1>
+            <br>
+            <hr>
         @foreach ($commentaires as $commentaire)
             <div class="mb-4">
                 <div class="mb-3">
-                    <label for="nom" class="form-label">Nom complet :</label>
-                    <input type="text" class="form-control" id="nom_complet_auteur" name="nom_complet_auteur" required value="{{ $commentaire->nom_complet_auteur }}">
+
+                  <h3>Nom complet: {{ $commentaire->nom_complet_auteur }}</h3>
                 </div>
                 <div class="mb-3">
-                    <label for="commentaire" class="form-label">Commentaire :</label>
-                    <textarea class="form-control" id="contenue" name="contenue" rows="4" required>{{ $commentaire->contenue }}</textarea>
+                    <label for="commentaire" class="form-label"><strong>Commentaire </strong>:</label>
+                        <p>{{ $commentaire->contenue }}</p>
                 </div>
                <span>{{$commentaire->date_heure_commentaire}}</span>
                <br>
